@@ -1,0 +1,4 @@
+*.lock
+/public
+/node_modules
+/resources
