@@ -1,6 +1,6 @@
 +++
 title = 'Contact'
-aliases = ["contact-us","connect"]
+aliases = []
 +++
 
 Although pretty quiet on social media, I am quite happy to chat directly. 

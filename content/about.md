@@ -1,6 +1,6 @@
 +++
 title = 'About'
-aliases = ["about-me","about-us","about","contact", "marc"]
+aliases = ["marc"]
 +++
 
 ## this site
