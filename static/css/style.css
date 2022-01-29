@@ -1,0 +1,5 @@
+/* home subtitle shouldn't run to edges */
+main div p {
+  margin-left: 2em;
+  margin-right: 2em;
+}
