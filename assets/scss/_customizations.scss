@@ -1,0 +1,20 @@
+em, i, strong {
+  // Default
+  color: $light-color;
+
+  @media (prefers-color-scheme: dark) {
+    color: $dark-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    color: $light-color;
+  }
+
+  [data-theme=dark] & {
+    color: $dark-color;
+  }
+
+  [data-theme=light] & {
+    color: $light-color;
+  }
+}
