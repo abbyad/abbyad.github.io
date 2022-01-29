@@ -1,4 +1,4 @@
-baseurl      = "localhost"
+baseurl      = "https://abbyad.github.io/"
 title        = "Marc Abbyad"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
