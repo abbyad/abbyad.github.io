@@ -9,6 +9,8 @@ This site is a place(*holder?*) for me to share some of my work and ideas.
 
 Except where otherwise noted, content on this site is licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
+If you see a problem with the site please [open a GitHub issue](https://github.com/abbyad/abbyad.github.io/issues/new).
+
 The site is built with [Hugo](http://gohugo.io) using the [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng) theme. Big thanks to all those who have contributed to those tools! 🙌🏽
 
 ## me
