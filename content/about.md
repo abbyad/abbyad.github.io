@@ -21,7 +21,5 @@ I am fortunate to be at the intersection of these interests with [Medic](https:/
 
 Although I have enjoyed the flexibility and high caliber of being on a remote-first distributed team since 2010 (not just 2020), I prefer to live in the *mesaverse*[^mesaverse] where I enjoy exploring cities and nature by foot, bike, or canoe, and taking photos, throwing frisbees, and building treehouses.
 
-{{< socials >}}
-
 [^generalist]: there's often a negative connotation to being a generalist, no thanks to the catchy *"Jack of all trades, master of none"*, yet that dismisses the point that we need a balance of generalists and specialists in the world, and often within a team.
 [^mesaverse]: mesaverse, [in contrast to the metaverse](https://medium.com/the-infinite-universe/awakening-from-the-metaverse-148ede48d72d)
