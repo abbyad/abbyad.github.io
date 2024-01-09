@@ -93,8 +93,11 @@ googleAnalytics = "368464016"
     subtitle = "Welcome!"
     homeSubtitle = """
 **Hello there, nice to meet you!**\n
-I lead the Product team at [Medic](https://medic.org) where we design, build, and maintain the [Community Health Toolkit](https://communityhealthtoolkit.org) — an open source software framework for people improving health in the hardest-to-reach communities.\n\n\n
-Please reach out if you'd like to connect!
+I am a builder of apps, teams, and communities for social impact. As part of the founding team at [Medic](https://medic.org), we turned "how can mobile tech improve healthcare in the most underserved communities?" to a nationally-scaled and globally supported [open-source software framework for health workers](https://communityhealthtoolkit.org).
+\n\n\n
+After a dozen years building a product and team, and working with users across Africa and Asia, I now consult for other teams with big questions looking to reach their maximum potential and impact.
+\n\n\n
+If you'd like to connect or work together, please [reach out](http://ca.linkedin.com/in/abbyad)!
     """
 
     keywords = ""
