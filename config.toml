@@ -51,7 +51,7 @@ googleAnalytics = "368464016"
     url = "https://www.facebook.com/abbyad/"
 
   [params.footer]
-    trademark = true
+    trademark = "Marc Abbyad"
     copyright = true
     author = false
     rss = true
