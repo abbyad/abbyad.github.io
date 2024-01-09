@@ -60,6 +60,7 @@ googleAnalytics = "368464016"
     bottomText = []
 
   # Colors for favicons
+  #
   [params.favicon.color]
     mask = "#1b1c1d"
     msapplication = "#1b1c1d"
