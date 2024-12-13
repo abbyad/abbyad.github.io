@@ -8,6 +8,8 @@ $(document).ready(function() {
     const pcByClinicUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${pcByClinicSheetName}!${pcByClinicRange}?key=AIzaSyADzxdIXWxhGVbTMhhnAsmgFfUryaPo8oQ`;
     const clinicsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${clinicsSheetName}!${clinicsRange}?key=AIzaSyADzxdIXWxhGVbTMhhnAsmgFfUryaPo8oQ`;
 
+    let isSearching = false; // Flag to indicate if a search is in progress
+
     // Function to validate the postal code
     function isValidPostalCode(postalCode) {
         const regex = /^[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d$/; // Regex to match a full Canadian postal code with an optional space
@@ -15,15 +17,17 @@ $(document).ready(function() {
     }
 
     function performSearch() {
+        if (isSearching) return; // Exit if a search is already in progress
+        isSearching = true; // Set the flag to indicate a search is in progress
+
         const searchTerm = $('#search-input').val().toUpperCase().replace(/\s+/g, ''); // Convert search term to uppercase and remove spaces
         const errorMessageElement = $('#error-message');
         const ul = $('#response-list');
-        const headerElement = $('#search-header');
         ul.empty(); // Clear the previous results
         errorMessageElement.text(''); // Clear any previous error message
 
         if (isValidPostalCode(searchTerm)) {
-            headerElement.text(`Clinics for ${searchTerm}`);
+            $('#search-button').prop('disabled', true); // Disable the search button
             fetch(pcByClinicUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -56,29 +60,42 @@ $(document).ready(function() {
                                     if (!clinicFound) {
                                         errorMessageElement.text('No clinics found for the specified postal code.');
                                     }
+                                    $('#search-button').prop('disabled', false); // Re-enable the search button
+                                    isSearching = false; // Reset the flag
                                 })
                                 .catch(error => {
                                     console.error('Error fetching clinic data: ', error);
                                     errorMessageElement.text('Error fetching clinic data. Please try again later.');
+                                    $('#search-button').prop('disabled', false); // Re-enable the search button
+                                    isSearching = false; // Reset the flag
                                 });
                         } else {
                             errorMessageElement.text('No clinic has been assigned for the specified postal code.');
+                            $('#search-button').prop('disabled', false); // Re-enable the search button
+                            isSearching = false; // Reset the flag
                         }
                     } else {
                         errorMessageElement.text('This postal code is not available for this search.');
+                        $('#search-button').prop('disabled', false); // Re-enable the search button
+                        isSearching = false; // Reset the flag
                     }
                 })
                 .catch(error => {
                     console.error('Error fetching data: ', error);
                     errorMessageElement.text('Error fetching clinics. Please try again later.');
+                    $('#search-button').prop('disabled', false); // Re-enable the search button
+                    isSearching = false; // Reset the flag
                 });
         } else {
             errorMessageElement.text('Please enter a valid Canadian postal code (e.g., K7L 1A1)');
+            isSearching = false; // Reset the flag
         }
     }
 
-    $('#search-button').click(performSearch);
-    
+    $('#search-button').click(function() {
+        performSearch();
+    });
+
     $('#search-input').keypress(function(event) {
         if (event.keyCode === 13) { // 13 is the Enter key code
             performSearch();
