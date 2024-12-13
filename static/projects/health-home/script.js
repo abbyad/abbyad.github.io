@@ -1,48 +1,87 @@
 $(document).ready(function() {
-    const spreadsheetId = '1MAmWpY-p7cWdz6lYLSlfsLUjquvF35v6xBq-H-x2gpo';
-    const sheetName = 'Sheet1'; // Change to the name of your sheet if different
-    const range = 'A:C'; // Make sure to include columns A to C
+    const spreadsheetId = '1bdCU88bgCzukGH1GsNh7vwE7rG-c5mnn23zea4qFq54';
+    const pcByClinicSheetName = 'PC by clinic'; // Change to the name of your sheet if different
+    const clinicsSheetName = 'Clinics'; // Change to the name of your sheet if different
+    const pcByClinicRange = 'A:I'; // Make sure to include columns A to I for PC by clinic sheet
+    const clinicsRange = 'A:E'; // Make sure to include columns A to E for Clinics sheet
 
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}!${range}?key=AIzaSyADzxdIXWxhGVbTMhhnAsmgFfUryaPo8oQ`;
+    const pcByClinicUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${pcByClinicSheetName}!${pcByClinicRange}?key=AIzaSyADzxdIXWxhGVbTMhhnAsmgFfUryaPo8oQ`;
+    const clinicsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${clinicsSheetName}!${clinicsRange}?key=AIzaSyADzxdIXWxhGVbTMhhnAsmgFfUryaPo8oQ`;
 
     // Function to validate the postal code
     function isValidPostalCode(postalCode) {
-        const regex1 = /^[A-Za-z]\d[A-Za-z]$/; // Regex to match the first three characters of a Canadian postal code
-        const regex2 = /^[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d$/; // Regex to match a full Canadian postal code with an optional space
-        return regex1.test(postalCode) || regex2.test(postalCode);
+        const regex = /^[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d$/; // Regex to match a full Canadian postal code with an optional space
+        return regex.test(postalCode);
     }
 
-    $('#search-button').click(function() {
+    function performSearch() {
         const searchTerm = $('#search-input').val().toUpperCase().replace(/\s+/g, ''); // Convert search term to uppercase and remove spaces
         const errorMessageElement = $('#error-message');
         const ul = $('#response-list');
         const headerElement = $('#search-header');
         ul.empty(); // Clear the previous results
-        headerElement.text(''); // Clear the previous header
         errorMessageElement.text(''); // Clear any previous error message
 
         if (isValidPostalCode(searchTerm)) {
-            headerElement.text(`Results for postal code: ${searchTerm}`);
-            const searchPrefix = searchTerm.slice(0, 3); // Use the first three characters for the search
-            fetch(url)
+            headerElement.text(`Clinics for ${searchTerm}`);
+            fetch(pcByClinicUrl)
                 .then(response => response.json())
                 .then(data => {
                     const values = data.values;
                     let found = false;
+                    let clinicIds = [];
                     values.forEach(row => {
-                        if (row[1] && row[1].toUpperCase().includes(searchPrefix)) { // Check if column B contains the search prefix
-                            const li = $('<li>').html(row[2]); // Use .html() to insert HTML content
-                            ul.append(li);
+                        if (row[0] && row[0].toUpperCase() === searchTerm) { // Check if column A matches the search term
+                            clinicIds = row[8] ? row[8].split(',').map(id => id.trim()) : []; // Split the clinic IDs by comma and trim spaces, or set to an empty array if undefined
                             found = true;
                         }
                     });
-                    if (!found) {
-                        ul.append('<li>No clinics found for the specified postal code.</li>');
+                    if (found) {
+                        if (clinicIds.length > 0) {
+                            // Fetch data from the Clinics sheet using the clinic IDs
+                            fetch(clinicsUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const clinicValues = data.values;
+                                    let clinicFound = false;
+                                    clinicIds.forEach(clinicId => {
+                                        clinicValues.forEach(clinicRow => {
+                                            if (clinicRow[0] && clinicRow[0].toUpperCase() === clinicId.toUpperCase() && clinicRow[4] === 'Yes') { // Check if column A matches the clinic ID and column E is "Yes"
+                                                const li = $('<li>').html(`<strong>${clinicRow[1]}</strong><br>${clinicRow[2]}<br>${clinicRow[3]}`); // Display the name (B), address (C), and phone number (D)
+                                                ul.append(li);
+                                                clinicFound = true;
+                                            }
+                                        });
+                                    });
+                                    if (!clinicFound) {
+                                        errorMessageElement.text('No clinics found for the specified postal code.');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching clinic data: ', error);
+                                    errorMessageElement.text('Error fetching clinic data. Please try again later.');
+                                });
+                        } else {
+                            errorMessageElement.text('No clinic has been assigned for the specified postal code.');
+                        }
+                    } else {
+                        errorMessageElement.text('This postal code is not available for this search.');
                     }
                 })
-                .catch(error => console.error('Error fetching data: ', error));
+                .catch(error => {
+                    console.error('Error fetching data: ', error);
+                    errorMessageElement.text('Error fetching clinics. Please try again later.');
+                });
         } else {
-            errorMessageElement.text('Please enter a valid Canadian postal code (e.g., K7L or K7L 1A1)');
+            errorMessageElement.text('Please enter a valid Canadian postal code (e.g., K7L 1A1)');
+        }
+    }
+
+    $('#search-button').click(performSearch);
+    
+    $('#search-input').keypress(function(event) {
+        if (event.keyCode === 13) { // 13 is the Enter key code
+            performSearch();
         }
     });
 });
