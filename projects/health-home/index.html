@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Search</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #003366; /* Dark blue color */
+            text-align: center;
+            padding-top: 20px;
+        }
+        #search-header {
+            font-size: 1.5em;
+            color: #003366; /* Dark blue color */
+            text-align: center;
+            padding-top: 10px;
+        }
+        #search-input {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1em;
+            width: 80%;
+        }
+        #search-button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #003366; /* Dark blue color */
+            color: white;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #error-message {
+            color: red;
+            text-align: center;
+            padding-top: 10px;
+        }
+        #response-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 20px auto;
+            width: 80%;
+            font-size: 1em;
+        }
+        #response-list li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clinic Search</h1>
+    <input type="text" id="search-input" placeholder="Enter your postal code (e.g., K7L)">
+    <button id="search-button">Search</button>
+    <p id="error-message"></p>
+    <h2 id="search-header"></h2>
+    <ul id="response-list"></ul>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
