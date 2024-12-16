@@ -70,12 +70,12 @@ $(document).ready(function() {
                                     isSearching = false; // Reset the flag
                                 });
                         } else {
-                            errorMessageElement.text('No clinic has been assigned for the specified postal code.');
+                            errorMessageElement.text('There are currently no clinics taking clients from this postal code.');
                             $('#search-button').prop('disabled', false); // Re-enable the search button
                             isSearching = false; // Reset the flag
                         }
                     } else {
-                        errorMessageElement.text('This postal code is not available for this search.');
+                        errorMessageElement.text('This postal code is not yet covered by this search.');
                         $('#search-button').prop('disabled', false); // Re-enable the search button
                         isSearching = false; // Reset the flag
                     }
