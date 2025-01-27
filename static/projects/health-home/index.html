@@ -39,6 +39,21 @@
             font-size: 1em;
             cursor: pointer;
         }
+        #spinner {
+            display: none;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #000;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
         #error-message {
             color: red;
             text-align: center;
@@ -66,6 +81,7 @@
         <input type="text" id="search-input" placeholder="Enter your postal code (e.g., K7K 1A1)">
         <button id="search-button">Search</button>
     </div>
+    <div id="spinner"></div>
     <p id="error-message"></p>
     <ul id="response-list"></ul>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
