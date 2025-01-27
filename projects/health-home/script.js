@@ -13,11 +13,15 @@ function performSearch() {
     const searchTerm = $('#search-input').val().toUpperCase().replace(/\s+/g, ''); // Convert search term to uppercase and remove spaces
     const errorMessageElement = $('#error-message');
     const ul = $('#response-list');
+    const spinner = $('#spinner');
+
     ul.empty(); // Clear the previous results
     errorMessageElement.text(''); // Clear any previous error message
 
     if (isValidPostalCode(searchTerm)) {
         $('#search-button').prop('disabled', true); // Disable the search button
+        spinner.show(); // Show the spinner
+
         fetch(`${webAppUrl}?postalCode=${encodeURIComponent(searchTerm)}`)
             .then(response => response.text()) // Get the response as text first
             .then(text => {
@@ -36,12 +40,14 @@ function performSearch() {
                 }
                 $('#search-button').prop('disabled', false); // Re-enable the search button
                 isSearching = false; // Reset the flag
+                spinner.hide(); // Hide the spinner
             })
             .catch(error => {
                 console.error('Error fetching data: ', error);
                 errorMessageElement.text('Error fetching clinics. Please try again later.');
                 $('#search-button').prop('disabled', false); // Re-enable the search button
                 isSearching = false; // Reset the flag
+                spinner.hide(); // Hide the spinner
             });
     } else {
         errorMessageElement.text('Please enter a valid Canadian postal code (e.g., K7L 1A1)');
