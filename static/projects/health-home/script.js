@@ -1,4 +1,5 @@
-const webAppUrl = 'https://script.google.com/macros/s/AKfycbymyd3CepDq0BNCY0-HkgAqluJk508uZZ1CYVzM680JurrolXUoSz6SYdivysThPkc9/exec';
+const webAppUrl = 'https://script.google.com/macros/s/AKfycbxLYtAHQ73OrBTRFkLOqt01927byIfwjTUGQoVsjt0K6J9YwT9LFUDRlKt7MTugwARTpA/exec';
+
 let isSearching = false;
 
 function isValidPostalCode(postalCode) {
