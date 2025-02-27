@@ -1,12 +1,12 @@
-const webAppUrl = 'https://script.google.com/macros/s/AKfycbxLYtAHQ73OrBTRFkLOqt01927byIfwjTUGQoVsjt0K6J9YwT9LFUDRlKt7MTugwARTpA/exec';
-
 let isSearching = false;
 
+// Function to validate Canadian postal codes
 function isValidPostalCode(postalCode) {
     const regex = /^[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d$/; // Regex to match a full Canadian postal code with an optional space
     return regex.test(postalCode);
 }
 
+// Function to perform the search
 function performSearch() {
     if (isSearching) return; // Exit if a search is already in progress
     isSearching = true; // Set the flag to indicate a search is in progress
@@ -23,20 +23,27 @@ function performSearch() {
         $('#search-button').prop('disabled', true); // Disable the search button
         spinner.show(); // Show the spinner
 
-        fetch(`${webAppUrl}?postalCode=${encodeURIComponent(searchTerm)}`)
-            .then(response => response.text()) // Get the response as text first
-            .then(text => {
-                console.log(`Response Text: ${text}`); // Log the response text
-                const data = JSON.parse(text); // Parse the text to JSON
-                console.log(data); // Log the parsed JSON data for debugging
-                if (data.error) {
-                    // Display the error message
-                    errorMessageElement.text(data.error);
+        fetch('data.json', {
+            cache: 'default' // Github pages files are considered fresh for 10 minutes, after that will check for updates
+        })
+            .then(response => response.json()) // Get the response as JSON
+            .then(data => {
+                const clinicIds = data.postal_codes[searchTerm];
+                if (!clinicIds) {
+                    // Display an error message if no clinics are found for the postal code
+                    errorMessageElement.text('No clinics found for this postal code.');
                 } else {
                     // Display the clinic details
-                    data.clinics.forEach(clinic => {
-                        const li = $('<li>').html(`<strong>${clinic.name}</strong><br>${clinic.address}<br>${clinic.phone}`);
-                        ul.append(li);
+                    clinicIds.split(', ').forEach(clinicId => {
+                        const clinic = data.clinics[clinicId];
+                        if (clinic) {
+                            const li = $('<li>').html(`<strong>${clinic.name}</strong><br>${clinic.address}<br>${clinic.phone}`);
+                            ul.append(li);
+                        }
+                        else {
+                            // Should only get here if data is corrupt, eg. a clinic ID is out of range
+                            console.error('Clinic not found: ', clinicId);
+                        }
                     });
                 }
                 $('#search-button').prop('disabled', false); // Re-enable the search button
@@ -56,6 +63,7 @@ function performSearch() {
     }
 }
 
+// Event listeners for search button click and Enter key press
 $('#search-button').click(function() {
     performSearch();
 });
