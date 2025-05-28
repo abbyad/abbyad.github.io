@@ -4,22 +4,20 @@ aliases = ["marc"]
 +++
 
 ## me
+I've long embraced the flexibility and excellence of **remote-first distributed teams** (since 2010, not just 2020), but I prefer to live in the **mesaverse**—a world grounded in real experiences. Whether I'm exploring nature and cities by foot, bike, or canoe, capturing photographs, throwing frisbees, or building treehouses, I embrace experiences that spark creativity and deepen my connection to the world around me. I thrive in **hands-on, in-person collaboration**—whether solving problems, building things, or simply sharing ideas face-to-face.
 
-My training is as a Software Engineer, yet I consider myself a generalist[^generalist] with interests across design, social justice, and democratizing technology through open source technologies.
+## software consulting
+**As a software consultant** with extensive experience in **product strategy and design**, I help organizations navigate complex challenges by applying **user-centered design, rapid prototyping, and iterative development** to craft **smart, effective solutions that drive meaningful impact**. Whether tackling **digital health, security, or broader software challenges**, my focus remains on **solving complex problems efficiently and effectively**.  
 
-I am fortunate to have been at the intersection of these interests with [Medic](https://medic.org), where I led the Product team that designs, builds, and maintains the [Community Health Toolkit](https://communityhealthtoolkit.org) — an open source software framework for people improving health in the hardest-to-reach communities. For over a dozen years I helped to built our team, our products, and our community.
+At [**Medic**](https://medic.org), I led the **Product team** responsible for developing the [**Community Health Toolkit**](https://communityhealthtoolkit.org)—an open-source framework enabling healthcare innovation in some of the world's hardest-to-reach communities. This experience shaped my approach to **building teams, designing solutions, and ensuring technology is effective where it matters most**—in the environments and communities it’s built to serve.
 
-Although I have enjoyed the flexibility and high caliber of being on a remote-first distributed team since 2010 (not just 2020), I prefer to live in the *mesaverse*[^mesaverse] where I enjoy exploring nature and cities by foot, bike, or canoe, and taking photos, throwing frisbees, and building treehouses.
+I believe that **the best solutions emerge from a deep understanding of the problem and an iterative design process**—allowing ideas to evolve through thoughtful experimentation, refinement, and real-world use. By continuously learning and adapting, I focus on delivering **smart, actionable solutions that empower teams to build better products**.
+
+If you’re interested in discussing ideas, collaborating, or just exchanging thoughts on software, design, or digital health, **please feel free to [reach out](https://www.linkedin.com/in/abbyad/)**!
 
 ## this site
+This space serves as a **hub for sharing ideas and projects**—a place (or placeholder?) to explore concepts, technology, and creativity.  
 
-This site is a place(*holder?*) for me to share some of my work and ideas.
+Except where otherwise noted, content on this site is licensed under [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/). If you **spot an issue**, please feel free to [open a GitHub issue](https://github.com/abbyad/abbyad.github.io/issues/new).  
 
-Except where otherwise noted, content on this site is licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
-
-If you see a problem with the site please [open a GitHub issue](https://github.com/abbyad/abbyad.github.io/issues/new).
-
-The site is built with [Hugo](http://gohugo.io) using the [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng) theme. Big thanks to all those who have contributed to those tools! 🙌🏽
-
-[^generalist]: there's often a negative connotation to being a generalist, no thanks to the catchy *"Jack of all trades, master of none"*, yet that dismisses the point that we need a balance of generalists and specialists in the world, and often within a team.
-[^mesaverse]: mesaverse, [in contrast to the metaverse](https://medium.com/the-infinite-universe/awakening-from-the-metaverse-148ede48d72d)
+Built with [**Hugo**](http://gohugo.io) using the [**hello-friend-ng**](https://github.com/rhazdon/hugo-theme-hello-friend-ng) theme—with deep gratitude to the contributors behind these tools. 🙌🏽
