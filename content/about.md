@@ -13,7 +13,7 @@ At [**Medic**](https://medic.org), I led the **Product team** responsible for de
 
 I believe that **the best solutions emerge from a deep understanding of the problem and an iterative design process**—allowing ideas to evolve through thoughtful experimentation, refinement, and real-world use. By continuously learning and adapting, I focus on delivering **smart, actionable solutions that empower teams to build better products**.
 
-If you’re interested in discussing ideas, collaborating, or just exchanging thoughts on software, design, or digital health, **please feel free to [reach out](https://www.linkedin.com/in/abbyad/)**!
+If you’re interested in discussing ideas, collaborating, or just exchanging thoughts on software, design, or digital health, **please feel free to [reach out](contact)**!
 
 ## this site
 This space serves as a **hub for sharing ideas and projects**—a place (or placeholder?) to explore concepts, technology, and creativity.  
