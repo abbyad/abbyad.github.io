@@ -1,0 +1,10 @@
+{{- with .Site.Params.homeTitle | markdownify}}
+    <p style="font-size: 1.4em; font-weight: 600; color:#a86ce4">{{.}}</p>
+{{- end }}
+{{- with .Site.Params.homeSubtitle | markdownify}}
+    <p><em style="color:#a86ce4">{{.}}</em></p>
+{{- end }}
+<br />
+{{- with .Site.Params.homeText | markdownify}}
+    <p>{{.}}</p>
+{{- end }}

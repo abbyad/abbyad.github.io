@@ -3,11 +3,11 @@ title = 'About'
 aliases = ["marc"]
 +++
 
-## me
 I've long embraced the flexibility and excellence of **remote-first distributed teams** (since 2010, not just 2020), but I prefer to live in the **mesaverse**—a world grounded in real experiences. Whether I'm exploring nature and cities by foot, bike, or canoe, capturing photographs, throwing frisbees, or building treehouses, I embrace experiences that spark creativity and deepen my connection to the world around me. I thrive in **hands-on, in-person collaboration**—whether solving problems, building things, or simply sharing ideas face-to-face.
 
-## software consulting
-**As a software consultant** with extensive experience in **product strategy and design**, I help organizations navigate complex challenges by applying **user-centered design, rapid prototyping, and iterative development** to craft **smart, effective solutions that drive meaningful impact**. Whether tackling **digital health, security, or broader software challenges**, my focus remains on **solving complex problems efficiently and effectively**.  
+## my work
+
+**As a software engineer** with extensive experience in **product strategy and design**, I help organizations navigate complex challenges by applying **user-centered design, rapid prototyping, and iterative development** to craft **smart, effective solutions that drive meaningful impact**. Whether tackling **digital health, security, or broader software challenges**, my focus remains on **solving complex problems efficiently and effectively**.  
 
 At [**Medic**](https://medic.org), I led the **Product team** responsible for developing the [**Community Health Toolkit**](https://communityhealthtoolkit.org)—an open-source framework enabling healthcare innovation in some of the world's hardest-to-reach communities. This experience shaped my approach to **building teams, designing solutions, and ensuring technology is effective where it matters most**—in the environments and communities it’s built to serve.
 

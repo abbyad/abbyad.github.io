@@ -2,7 +2,8 @@ baseurl      = "https://abbyad.com/"
 title        = "Marc Abbyad"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
-paginate     = 10
+# paginate     = 10
+pagination.pagerSize = 10
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License." # This message is only used by the RSS template.
 
 googleAnalytics = "368464016"
@@ -30,13 +31,24 @@ googleAnalytics = "368464016"
   keywords = "homepage, blog"
   images = [""]
 
+  title = "Marc Abbyad"
+  subtitle = "Welcome!"
+  homeTitle = "Software Engineer. Problem Solver. Builder."
+  homeSubtitle = "I navigate tough challenges with smart, effective solutions—delivered with speed, clarity, and a designer’s mindset for usability and impact."
+  homeText = """
+As part of the founding team at [Medic](https://medic.org), we turned _"how can mobile tech improve healthcare in the most underserved communities?"_ into a **nationally scaled and globally supported** [open-source software framework for health workers](https://communityhealthtoolkit.org).
+
+After a dozen years **leading product development**, **building teams**, and working with users across Africa and Asia, I now **consult with teams tackling tough challenges**—helping them unlock their full potential and impact with smart, effective solutions.  
+
+If you'd like to **connect or work together** on ideas big or small, please [**reach out**](contact)!
+
+###
+
+  """
+  
   [params.portrait]
     path = "marc-abbyad.jpg"
     alt = "Marc's headshot"
-
-  [[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/MarcAbbyad"
 
   [[params.social]]
     name = "github"
@@ -49,6 +61,10 @@ googleAnalytics = "368464016"
   [[params.social]]
     name = "facebook"
     url = "https://www.facebook.com/abbyad/"
+
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/MarcAbbyad"
 
   [params.footer]
     trademark = "Marc Abbyad"
