@@ -6,7 +6,7 @@ theme        = "hello-friend-ng"
 pagination.pagerSize = 10
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License." # This message is only used by the RSS template.
 
-googleAnalytics = "368464016"
+googleAnalytics = "G-5HX43LYK2K"
 
 [params]
   dateform        = "Jan 2, 2006"
